@@ -1,7 +1,8 @@
-FROM node:14
+# FROM node:14
+FROM node:lts-alpine
 
 # Set the working directory
-WORKDIR /app
+WORKDIR /usr/src/app
 
 # Copy the package.json and package-lock.json
 COPY package*.json ./
@@ -18,6 +19,10 @@ COPY . .
 # Expose the port
 EXPOSE 8080
 
+# Build the application
+RUN npm run build
+
 # Start the application
-CMD ["npm", "ci" ]
-CMD [ "npm", "start" ]
+# CMD ["npm", "ci" ]
+# CMD [ "npm", "start" ]
+CMD [ "node", "index.js" ]
