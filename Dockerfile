@@ -20,7 +20,7 @@ COPY . .
 EXPOSE 8080
 
 # Build the application
-RUN npm run build
+RUN npm build
 
 # Start the application
 # CMD ["npm", "ci" ]
